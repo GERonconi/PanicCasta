@@ -1,0 +1,338 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* body{
+    height: 100vh;
+    background: #584040;
+    display: flex;
+    align-items: center;
+} */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .contenedor {
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    
+    position: relative; */
+
+    /* background: linear-gradient(#b7d6c7, transparent) #ffe2d1; */
+    /*linear-gradient(#90ebff, white);*/
+    /* transition: background-color 1s linear; */
+    /* overflow: hidden;
+} */
+
+/* .contenedor {
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    background-image: url(/img/fondo_dia.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+ 
+.contenedor {
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* .mediodia {
+    background-color: #ffdcf3;
+}
+
+.tarde {
+    background-color: #ffadad;
+}
+
+.noche {
+    background-color: #aca8c7;
+} */
+
+/* .fondo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url(/img/fondo_dia.png) repeat-x 0 0;
+    background-size: cover;
+    z-index: -1;
+} */
+
+/* .fondo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url(/img/fondo_dia2.png) repeat-x;
+    background-size: 3000px 100%; 
+    background-position: bottom;
+    z-index: -2;
+} */
+
+.fondo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url(/img/fondo_dia.png) repeat-x;
+    background-size: cover;
+    z-index: -2;
+}
+
+/* Si el gradiente está en otro lugar, podés anularlo así: */
+body {
+  background: none !important;
+}
+
+/* También podés resetear posibles gradientes en before/after */
+body::before,
+body::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+
+.dino {
+    width: 84px;
+    height: 84px;
+
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+
+    background: url(/img/miley.png) repeat-x 0px 0px;
+    background-size: 170px 85px;
+    background-position-x: 0px;
+    animation: animarDino 0.25s steps(2) infinite;
+}
+
+.dino-corriendo {
+    animation: animarDino 0.25s steps(2) infinite;
+}
+
+.dino-estrellado {
+    background-position-x: -252px;
+}
+
+.suelo {
+    width: 200%;
+    height: 300px;
+
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+
+    background: url(/img/CALLE1.png) repeat-x 0px 0px;
+    /* background-size: 50% 42px; */
+    background-size: auto 300px;
+    /* background-size: 1280px 42px; */
+
+}
+
+.moneda {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-image: url(/img/bitcoin.png); /* Cambia por la ruta correcta */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cactus{
+    width: 46px;
+    height: 96px;
+
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url(/img/cactus1.png) no-repeat;
+}
+.cactus2{
+    width: 98px;
+    height: 66px;
+
+    background: url(/img/cactus2.png) no-repeat;
+}
+
+.cristina{
+    width: 85px;
+    height: 85px;
+
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url(/img/cristina.png) no-repeat;
+}
+
+.cristina2{
+    width: 85px;
+    height: 85px;
+
+    background: url(/img/cristina3.png) no-repeat;
+}
+
+.axel{
+    width: 85px;
+    height: 85px;
+
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url(/img/axelcolor.png) no-repeat;
+}
+
+.maximo{
+    width: 85px;
+    height: 85px;
+
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url(/img/maximocolor.png) no-repeat;
+}
+
+.nube{
+    width: 92px;
+    height: 26px;
+
+    position: absolute;
+    z-index: 0;
+
+    background: url(/img/nube.png) no-repeat;
+    background-size: 92px 26px;
+}
+
+.score{
+    width: 100px;
+    height: 30px;
+
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+
+    color: #d48871;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* .game-over{
+    display: none;
+
+    position: absolute;
+    width: 100%;
+
+
+    text-align: center;
+    color: #7e928b;
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: 700;
+} */
+
+/* @keyframes animarDino{
+    from{
+        background-position-x: -84px;
+    }
+    to{
+        background-position-x: -252px;
+    }
+} */
+
+.game-over-container {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+.game-over {
+    font-size: 48px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-restart {
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-restart:hover {
+    background-color: #555;
+}
+
+.cristina {
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url(/img/cristinaX2color.png) no-repeat;
+    background-size: 170px 85px;
+    animation: correrCristina 0.25s steps(2) infinite;
+}
+
+.animacion-pausada {
+  animation-play-state: paused !important;
+}
+
+@keyframes correrCristina {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -170px;
+    }
+}
+
+@keyframes animarDino {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -170px;
+    }
+}
