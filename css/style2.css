@@ -31,7 +31,7 @@ body{
     left: 0;
     width: 200%;
     height: 100%;
-    background: url(/img/capazfinal.png) repeat-x;
+    background: url(../img/capazfinal.png) repeat-x;
     /* background-size: 3000px 100%; escalarla horizontalmente */
     background-size: cover;
     background-position: bottom;
@@ -61,7 +61,7 @@ body::after {
     left: 42px;
     z-index: 2;
 
-    background: url(/img/miley.png) repeat-x 0px 0px;
+    background: url(../img/miley.png) repeat-x 0px 0px;
     background-size: 170px 85px;
     background-position-x: 0px;
     animation: animarDino 0.25s steps(2) infinite;
@@ -83,7 +83,7 @@ body::after {
     bottom: -120px;
     left: 0;
 
-    background: url(/img/CALLE1\ con\ lineas\ blancas.png) repeat-x 0px 0px;
+    background: url(../img/CALLE1\ con\ lineas\ blancas.png) repeat-x 0px 0px;
     /* background-size: 50% 42px; */
     background-size: auto 300px;
     /* background-size: 1280px 42px; */
@@ -94,7 +94,7 @@ body::after {
   width: 30px;
   height: 30px;
   position: absolute;
-  background-image: url(/img/bitcoin.png); /* Cambia por la ruta correcta */
+  background-image: url(../img/bitcoin.png); /* Cambia por la ruta correcta */
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -108,14 +108,14 @@ body::after {
     left: 600px;
     z-index: 1;
 
-    background: url(/img/cristina.png) no-repeat;
+    background: url(../img/cristina.png) no-repeat;
 }
 
 .cristina2{
     width: 85px;
     height: 85px;
 
-    background: url(/img/cristina3.png) no-repeat;
+    background: url(../img/cristina3.png) no-repeat;
 }
 
 .axel{
@@ -127,7 +127,7 @@ body::after {
     left: 600px;
     z-index: 1;
 
-    background: url(/img/axelcolor.png) no-repeat;
+    background: url(../img/axelcolor.png) no-repeat;
 }
 
 .maximo{
@@ -139,7 +139,7 @@ body::after {
     left: 600px;
     z-index: 1;
 
-    background: url(/img/maximocolor.png) no-repeat;
+    background: url(../img/maximocolor.png) no-repeat;
 }
 
 .score{
@@ -199,7 +199,7 @@ body::after {
     left: 600px;
     z-index: 1;
 
-    background: url(/img/cristinaX2color.png) no-repeat;
+    background: url(../img/cristinaX2color.png) no-repeat;
     background-size: 170px 85px;
     animation: correrCristina 0.25s steps(2) infinite;
 }
