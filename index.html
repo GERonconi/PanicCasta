@@ -7,8 +7,26 @@
     <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-    
+
+    <!-- ...existing code... -->
+<audio id="bg-audio" loop>
+    <source src="./music/_Recorte Final_.mp3" type="audio/mpeg">
+</audio>
+<!-- ...existing code... -->
+
     <div class="contenedor">
+
+        <div class="pantalla-inicial" id="pantalla-inicial">
+            <img src="./img/portada-panic-casta.png" alt="Panic Casta" class="portada">
+            <button id="btn-jugar" class="btn-jugar">JUGAR</button>
+
+            <div id="dificultad-container" style="display:none; margin-top:0px;">
+                <button class="btn-dificultad" data-dificultad="facil">Fácil</button>
+                <button class="btn-dificultad" data-dificultad="medio">Medio</button>
+                <button class="btn-dificultad" data-dificultad="dificil">Difícil</button>
+            </div>
+            
+        </div>
 
         <div class="suelo"></div>
 

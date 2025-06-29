@@ -3,10 +3,24 @@
 var time = new Date();
 var deltaTime = 0;
 
+// if(document.readyState === "complete" || document.readyState === "interactive"){
+//     setTimeout(Init, 1);
+// }else{
+//     document.addEventListener("DOMContentLoaded", Init); 
+// }
+
 if(document.readyState === "complete" || document.readyState === "interactive"){
-    setTimeout(Init, 1);
+    setTimeout(PrepararPantallaInicio, 1);
 }else{
-    document.addEventListener("DOMContentLoaded", Init); 
+    document.addEventListener("DOMContentLoaded", PrepararPantallaInicio);
+}
+
+function PrepararPantallaInicio() {
+    // Quita el addEventListener anterior para btn-jugar y reemplázalo por esto:
+    document.getElementById('btn-jugar').addEventListener('click', function() {
+        document.getElementById('btn-jugar').style.display = 'none';
+        document.getElementById('dificultad-container').style.display = 'block';
+    });
 }
 
 function Init() {
@@ -34,7 +48,7 @@ var dinoPosY = sueloY;
 
 var sueloX = 0;
 var velEscenario = 1280/3;
-var gameVel = 1;
+var gameVel = 0.5; // Velocidad del juego, se incrementa al ganar puntos
 var score = 0;
 
 var parado = false;
@@ -57,6 +71,8 @@ var tiempoHastaMoneda = 3;
 var tiempoMonedaMin = 2;
 var tiempoMonedaMax = 5;
 var monedas = [];
+
+var dificultadFactor = 1;
 
 function Start() {
     gameOver = document.querySelector(".game-over");
@@ -269,13 +285,13 @@ function GanarPuntos() {
     score++;
     textoScore.innerText = score;
     if(score == 5){
-        gameVel = 1.3;
+        gameVel = 0.7 * dificultadFactor;
         contenedor.classList.add("mediodia");
     }else if(score == 10) {
-        gameVel = 1.5;
+        gameVel = 1.0 * dificultadFactor;
         contenedor.classList.add("tarde");
     } else if(score == 20) {
-        gameVel = 1.75;
+        gameVel = 1.5 * dificultadFactor;
         contenedor.classList.add("noche");
     }
     suelo.style.animationDuration = (3/gameVel)+"s";
@@ -334,12 +350,56 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 // }
 
 function mostrarGameOver() {
+    // Pausar la música de fondo
+    var audio = document.getElementById('bg-audio');
+    if (audio && !audio.paused) {
+        audio.pause();
+    }
+
     document.querySelector('.game-over-container').style.display = 'block';
 }
 
+// function reiniciarJuego() {
+//     // Recarga la página para reiniciar el juego completo
+//     location.reload();
+// }
+
 function reiniciarJuego() {
-    // Recarga la página para reiniciar el juego completo
-    location.reload();
+    // Oculta el cartel de Game Over
+    document.querySelector('.game-over-container').style.display = 'none';
+
+    // Reinicia variables del juego
+    obstaculos.forEach(obs => obs.remove());
+    monedas.forEach(mon => mon.remove());
+    obstaculos = [];
+    monedas = [];
+    
+    score = 0;
+    textoScore.innerText = score;
+    dinoPosY = sueloY;
+    velY = 0;
+    parado = false;
+    saltando = false;
+    sueloX = 0;
+
+    // Aquí: usa el factor de dificultad para la velocidad inicial
+    gameVel = 0.5 * dificultadFactor;
+
+    tiempoHastaObstaculo = 2;
+    tiempoHastaMoneda = 3;
+
+    var audio = document.getElementById('bg-audio');
+    if (audio && audio.paused) {
+        audio.currentTime = 0; // Reinicia el audio al principio
+        audio.play();
+    }
+
+    dino.className = "dino dino-corriendo";
+
+    // Reinicia clases de ambiente
+    contenedor.classList.remove("mediodia", "tarde", "noche");
+
+    // Listo para continuar el bucle
 }
 
 function DecidirCrearMoneda() {
@@ -371,3 +431,39 @@ function DetectarMoneda() {
     }
 }
 
+
+
+// Maneja el click en los botones de dificultad
+document.querySelectorAll('.btn-dificultad').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var dificultad = btn.getAttribute('data-dificultad');
+        setDificultad(dificultad);
+
+        // Oculta la pantalla inicial y comienza el juego
+        document.getElementById('pantalla-inicial').style.display = 'none';
+
+        // Muestra el score
+        document.querySelector('.score').style.display = 'block';
+
+        Init();
+    });
+});
+
+// Función para ajustar la dificultad
+function setDificultad(dificultad) {
+    if (dificultad === 'facil') {
+        dificultadFactor = 1;
+    } else if (dificultad === 'medio') {
+        dificultadFactor = 1.3;
+    } else if (dificultad === 'dificil') {
+        dificultadFactor = 1.6;
+    }
+    // Inicializa la velocidad base multiplicada por el factor
+    gameVel = 0.5 * dificultadFactor;
+
+    var audio = document.getElementById('bg-audio');
+    if (audio && audio.paused) {
+        audio.currentTime = 0; // Reinicia el audio al principio
+        audio.play();
+    }
+}
