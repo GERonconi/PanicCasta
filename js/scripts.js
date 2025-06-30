@@ -40,8 +40,11 @@ function Loop() {
 
 var sueloY = 22;
 var velY = 0;
-var impulso = 900;
-var gravedad = 2500;
+// var impulso = 900;
+// var gravedad = 2500;
+var impulso = 900; // Ajustado para que el salto sea más corto
+var gravedad = 2000; // Ajustado para que la gravedad sea más fuerte    
+
 
 var dinoPosX = 42;
 var dinoPosY = sueloY; 
@@ -55,8 +58,10 @@ var parado = false;
 var saltando = false;
 
 var tiempoHastaObstaculo = 2;
-var tiempoObstaculoMin = 0.7;
-var tiempoObstaculoMax = 1.8;
+// var tiempoObstaculoMin = 0.7;
+// var tiempoObstaculoMax = 1.8;
+var tiempoObstaculoMin = 1.5;
+var tiempoObstaculoMax = 3.2;
 var obstaculoPosY = 16;
 var obstaculos = [];
 
@@ -72,7 +77,7 @@ var tiempoMonedaMin = 2;
 var tiempoMonedaMax = 5;
 var monedas = [];
 
-var dificultadFactor = 1;
+// var dificultadFactor = 1;
 
 function Start() {
     gameOver = document.querySelector(".game-over");
@@ -240,6 +245,7 @@ function CrearObstaculo() {
     claseRandom.split(" ").forEach(clase => obstaculo.classList.add(clase));
 
     obstaculos.push(obstaculo);
+    // tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;
     tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax - tiempoObstaculoMin) / gameVel;
 }
 
